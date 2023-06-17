@@ -229,8 +229,9 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-self: center;
   align-items: center;
-  width: 250px;
+  width: 350px;
   grid-row: 3;
   grid-column: 2/4;
   padding-bottom: 40px;
