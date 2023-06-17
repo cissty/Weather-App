@@ -1,15 +1,12 @@
 import "./styles/styles.scss";
-
-const countryName = document.getElementById("information");
-const submitButton = document.getElementById("submitButton");
-const searchInput = document.getElementById("search");
-const autoCompleteDiv = document.querySelector(".auto-complete");
-const switchDegreeText = document.getElementById("f-c-text");
-const toggleCheckbox = document.getElementById("toggle1");
-const feelingTemp = document.getElementById("feeling-text");
-
 async function weather() {
+  //DOM//
+  const switchDegreeText = document.getElementById("f-c-text");
+  const toggleCheckbox = document.getElementById("toggle1");
+  const feelingTemp = document.getElementById("feeling-text");
+  const countryName = document.getElementById("information");
   const lastUpdatedText = document.getElementById("last-updated");
+  //////
   const url = `http://api.weatherapi.com/v1/current.json?key=20307156973249f08ae23813231506&q=${searchInput.value}`;
   try {
     const response = await fetch(url);
@@ -22,6 +19,13 @@ async function weather() {
     switchDegreeText.textContent = `${tempC}°C`;
     feelingTemp.textContent = `${data.current["feelslike_c"]}°C`;
 
+    // get today's date//
+    const dailyDate = document.getElementById("todays-date");
+    const today = new Date();
+    const date = today.toLocaleDateString();
+    const time = today.toLocaleTimeString();
+    //
+    dailyDate.innerHTML = `Date: ${date} <br> Current Time: ${time}`;
     toggleCheckbox.addEventListener("change", () => {
       if (toggleCheckbox.checked) {
         switchDegreeText.textContent = `${tempC}°C`;
@@ -32,22 +36,27 @@ async function weather() {
       }
     });
     countryName.textContent = `${city}/${country}`;
-    console.log(data);
   } catch (error) {
     console.log(error);
   }
 }
+//if pressed enter or to the search button
+const submitButton = document.getElementById("submitButton");
+const searchInput = document.getElementById("search");
+//dom//
 
 searchInput.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     submitButton.click();
+    // displayMainContainer()
   }
 });
 submitButton.addEventListener("click", () => {
   weather();
   clearSearchInput();
+  // displayMainContainer()
 });
-
+//for search
 async function showSearchResults() {
   const url = `http://api.weatherapi.com/v1/search.json?key=20307156973249f08ae23813231506&q=${searchInput.value}`;
 
@@ -76,6 +85,8 @@ async function showSearchResults() {
     console.log(error);
   }
 }
+//listening each keyword on search input.//
+const autoCompleteDiv = document.querySelector(".auto-complete");
 searchInput.addEventListener("keyup", showSearchResults);
 
 function clearSearchInput() {
@@ -83,3 +94,15 @@ function clearSearchInput() {
   autoCompleteDiv.textContent = "";
   autoCompleteDiv.style.border = "0px";
 }
+
+//main container
+function displayMainContainer() {
+  const mainContainer = document.querySelector(".container");
+  mainContainer.classList.add("show");
+}
+//
+const sevenDaysButton = document.querySelector(".sevenDaysButton");
+const informationContainer = document.querySelector(".inf-container");
+sevenDaysButton.addEventListener("click", function () {
+  informationContainer.style.display = "none";
+});

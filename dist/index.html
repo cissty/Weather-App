@@ -30,13 +30,14 @@
             <label for="toggle1"></label>
           </div>
         </div>
-        <div class="inf-container">
+        <div class="inf-container" style="display: none;">
           <div class="update">
             <div class="last-update-date">
-              <span>Last update</span>
+              <span>Today</span>
               <hr />
-              <div id="last-updated"></div>
+              <div id="todays-date"></div>
             </div>
+
             <div class="last-update-date">
               <span>Last update</span>
               <hr />
@@ -45,15 +46,17 @@
           </div>
           <div class="f-c-circles">
             <div class="circle">
-              <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55">
+              <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
                 <circle
-                  cx="27.5"
-                  cy="27.5"
-                  r="25"
+                  cx="35"
+                  cy="35"
+                  r="30"
                   fill="transparent"
                   stroke="white"
                   stroke-width="2"
                 />
+              </svg>
+              
                 <text
                   id="f-c-text"
                   x="50%"
@@ -66,15 +69,17 @@
               <p class="inf-inf">Temperature</p>
             </div>
             <div class="circle">
-              <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55">
+              <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
                 <circle
-                  cx="27.5"
-                  cy="27.5"
-                  r="25"
+                  cx="35"
+                  cy="35"
+                  r="30"
                   fill="transparent"
                   stroke="white"
                   stroke-width="2"
                 />
+              </svg>
+              
                 <text
                   id="feeling-text"
                   x="50%"
@@ -84,11 +89,484 @@
                   fill="white"
                 ></text>
               </svg>
-              <p class="inf-inf-f">Feeling Temperature</p>
+              <p class="inf-inf-f">Feeling Temp</p>
             </div>
           </div>
         </div>
+
+        <section class="seven-days">
+          <div class="each-circle-column">
+            <p>Day 1</p>
+            <div class="circle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+                <circle
+                  cx="35"
+                  cy="35"
+                  r="30"
+                  fill="transparent"
+                  stroke="white"
+                  stroke-width="2"
+                />
+                <text
+                  id="f-c-text"
+                  x="35"
+                  y="35"
+                  text-anchor="middle"
+                  dominant-baseline="central"
+                  fill="white"
+                >50C</text>
+              </svg>
+              <p class="inf-inf">Temperature</p>
+            </div>
+          <div class="circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+              <circle
+                cx="35"
+                cy="35"
+                r="30"
+                fill="transparent"
+                stroke="white"
+                stroke-width="2"
+              />
+              <text
+                id="f-c-text"
+                x="35"
+                y="35"
+                text-anchor="middle"
+                dominant-baseline="central"
+                fill="white"
+              >14.6C</text>
+            </svg>
+            <p class="inf-inf">Feels like</p>
+          </div>
+          <div class="circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+              <circle
+                cx="35"
+                cy="35"
+                r="30"
+                fill="transparent"
+                stroke="white"
+                stroke-width="2"
+              />
+              <text
+                id="f-c-text"
+                x="35"
+                y="35"
+                text-anchor="middle"
+                dominant-baseline="central"
+                fill="white"
+              >9.5</text>
+            </svg>
+            <p class="inf-inf">Wind kph</p>
+          </div>
+        </div>
+          
+        <div class="each-circle-column">
+          <p>Day 2</p>
+          <div class="circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+              <circle
+                cx="35"
+                cy="35"
+                r="30"
+                fill="transparent"
+                stroke="white"
+                stroke-width="2"
+              />
+              <text
+                id="f-c-text"
+                x="35"
+                y="35"
+                text-anchor="middle"
+                dominant-baseline="central"
+                fill="white"
+              >50C</text>
+            </svg>
+            <p class="inf-inf">Temperature</p>
+          </div>
+        <div class="circle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+            <circle
+              cx="35"
+              cy="35"
+              r="30"
+              fill="transparent"
+              stroke="white"
+              stroke-width="2"
+            />
+            <text
+              id="f-c-text"
+              x="35"
+              y="35"
+              text-anchor="middle"
+              dominant-baseline="central"
+              fill="white"
+            >14.6C</text>
+          </svg>
+          <p class="inf-inf">Feels like</p>
+        </div>
+        <div class="circle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+            <circle
+              cx="35"
+              cy="35"
+              r="30"
+              fill="transparent"
+              stroke="white"
+              stroke-width="2"
+            />
+            <text
+              id="f-c-text"
+              x="35"
+              y="35"
+              text-anchor="middle"
+              dominant-baseline="central"
+              fill="white"
+            >9.5</text>
+          </svg>
+          <p class="inf-inf">Wind kph</p>
+        </div>
       </div>
+
+      <div class="each-circle-column">
+        <p>Day 3</p>
+        <div class="circle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+            <circle
+              cx="35"
+              cy="35"
+              r="30"
+              fill="transparent"
+              stroke="white"
+              stroke-width="2"
+            />
+            <text
+              id="f-c-text"
+              x="35"
+              y="35"
+              text-anchor="middle"
+              dominant-baseline="central"
+              fill="white"
+            >50C</text>
+          </svg>
+          <p class="inf-inf">Temperature</p>
+        </div>
+      <div class="circle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+          <circle
+            cx="35"
+            cy="35"
+            r="30"
+            fill="transparent"
+            stroke="white"
+            stroke-width="2"
+          />
+          <text
+            id="f-c-text"
+            x="35"
+            y="35"
+            text-anchor="middle"
+            dominant-baseline="central"
+            fill="white"
+          >14.6C</text>
+        </svg>
+        <p class="inf-inf">Feels like</p>
+      </div>
+      <div class="circle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+          <circle
+            cx="35"
+            cy="35"
+            r="30"
+            fill="transparent"
+            stroke="white"
+            stroke-width="2"
+          />
+          <text
+            id="f-c-text"
+            x="35"
+            y="35"
+            text-anchor="middle"
+            dominant-baseline="central"
+            fill="white"
+          >9.5</text>
+        </svg>
+        <p class="inf-inf">Wind kph</p>
+      </div>
+    </div>
+    <div class="each-circle-column">
+      <p>Day 4</p>
+      <div class="circle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+          <circle
+            cx="35"
+            cy="35"
+            r="30"
+            fill="transparent"
+            stroke="white"
+            stroke-width="2"
+          />
+          <text
+            id="f-c-text"
+            x="35"
+            y="35"
+            text-anchor="middle"
+            dominant-baseline="central"
+            fill="white"
+          >50C</text>
+        </svg>
+        <p class="inf-inf">Temperature</p>
+      </div>
+    <div class="circle">
+      <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+        <circle
+          cx="35"
+          cy="35"
+          r="30"
+          fill="transparent"
+          stroke="white"
+          stroke-width="2"
+        />
+        <text
+          id="f-c-text"
+          x="35"
+          y="35"
+          text-anchor="middle"
+          dominant-baseline="central"
+          fill="white"
+        >14.6C</text>
+      </svg>
+      <p class="inf-inf">Feels like</p>
+    </div>
+    <div class="circle">
+      <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+        <circle
+          cx="35"
+          cy="35"
+          r="30"
+          fill="transparent"
+          stroke="white"
+          stroke-width="2"
+        />
+        <text
+          id="f-c-text"
+          x="35"
+          y="35"
+          text-anchor="middle"
+          dominant-baseline="central"
+          fill="white"
+        >9.5</text>
+      </svg>
+      <p class="inf-inf">Wind kph</p>
+    </div>
+  </div>
+
+  <div class="each-circle-column">
+    <p>Day 5</p>
+    <div class="circle">
+      <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+        <circle
+          cx="35"
+          cy="35"
+          r="30"
+          fill="transparent"
+          stroke="white"
+          stroke-width="2"
+        />
+        <text
+          id="f-c-text"
+          x="35"
+          y="35"
+          text-anchor="middle"
+          dominant-baseline="central"
+          fill="white"
+        >50C</text>
+      </svg>
+      <p class="inf-inf">Temperature</p>
+    </div>
+  <div class="circle">
+    <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+      <circle
+        cx="35"
+        cy="35"
+        r="30"
+        fill="transparent"
+        stroke="white"
+        stroke-width="2"
+      />
+      <text
+        id="f-c-text"
+        x="35"
+        y="35"
+        text-anchor="middle"
+        dominant-baseline="central"
+        fill="white"
+      >14.6C</text>
+    </svg>
+    <p class="inf-inf">Feels like</p>
+  </div>
+  <div class="circle">
+    <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+      <circle
+        cx="35"
+        cy="35"
+        r="30"
+        fill="transparent"
+        stroke="white"
+        stroke-width="2"
+      />
+      <text
+        id="f-c-text"
+        x="35"
+        y="35"
+        text-anchor="middle"
+        dominant-baseline="central"
+        fill="white"
+      >9.5</text>
+    </svg>
+    <p class="inf-inf">Wind kph</p>
+  </div>
+</div>
+
+<div class="each-circle-column">
+  <p>Day 6</p>
+  <div class="circle">
+    <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+      <circle
+        cx="35"
+        cy="35"
+        r="30"
+        fill="transparent"
+        stroke="white"
+        stroke-width="2"
+      />
+      <text
+        id="f-c-text"
+        x="35"
+        y="35"
+        text-anchor="middle"
+        dominant-baseline="central"
+        fill="white"
+      >50C</text>
+    </svg>
+    <p class="inf-inf">Temperature</p>
+  </div>
+<div class="circle">
+  <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+    <circle
+      cx="35"
+      cy="35"
+      r="30"
+      fill="transparent"
+      stroke="white"
+      stroke-width="2"
+    />
+    <text
+      id="f-c-text"
+      x="35"
+      y="35"
+      text-anchor="middle"
+      dominant-baseline="central"
+      fill="white"
+    >14.6C</text>
+  </svg>
+  <p class="inf-inf">Feels like</p>
+</div>
+<div class="circle">
+  <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+    <circle
+      cx="35"
+      cy="35"
+      r="30"
+      fill="transparent"
+      stroke="white"
+      stroke-width="2"
+    />
+    <text
+      id="f-c-text"
+      x="35"
+      y="35"
+      text-anchor="middle"
+      dominant-baseline="central"
+      fill="white"
+    >9.5</text>
+  </svg>
+  <p class="inf-inf">Wind kph</p>
+</div>
+</div>
+
+<div class="last-circle-column">
+  <p>Day 7</p>
+  <div class="circle">
+    <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+      <circle
+        cx="35"
+        cy="35"
+        r="30"
+        fill="transparent"
+        stroke="white"
+        stroke-width="2"
+      />
+      <text
+        id="f-c-text"
+        x="35"
+        y="35"
+        text-anchor="middle"
+        dominant-baseline="central"
+        fill="white"
+      >50C</text>
+    </svg>
+    <p class="inf-inf">Temperature</p>
+  </div>
+<div class="circle">
+  <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+    <circle
+      cx="35"
+      cy="35"
+      r="30"
+      fill="transparent"
+      stroke="white"
+      stroke-width="2"
+    />
+    <text
+      id="f-c-text"
+      x="35"
+      y="35"
+      text-anchor="middle"
+      dominant-baseline="central"
+      fill="white"
+    >14.6C</text>
+  </svg>
+  <p class="inf-inf">Feels like</p>
+</div>
+<div class="circle">
+  <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
+    <circle
+      cx="35"
+      cy="35"
+      r="30"
+      fill="transparent"
+      stroke="white"
+      stroke-width="2"
+    />
+    <text
+      id="f-c-text"
+      x="35"
+      y="35"
+      text-anchor="middle"
+      dominant-baseline="central"
+      fill="white"
+    >9.5</text>
+  </svg>
+  <p class="inf-inf">Wind kph</p>
+</div>
+</div>
+
+        </section>
+      </div>
+      <button class="sevenDaysButton"">See 7 days</button>
+
     </main>
 
     <footer class="footer">
