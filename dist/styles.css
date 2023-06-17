@@ -25,7 +25,11 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  background-image: linear-gradient(rgba(4, 9, 30, 0.562), rgba(4, 9, 30, 0.418)), url(060a614aa1bdff4e149d.jpg);
+  background-image: linear-gradient(
+      rgba(4, 9, 30, 0.562),
+      rgba(4, 9, 30, 0.418)
+    ),
+    url(060a614aa1bdff4e149d.jpg);
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
@@ -132,7 +136,7 @@ header {
   cursor: pointer;
 }
 
-input[type=text] {
+input[type="text"] {
   width: 350px;
   padding: 8px;
   border: 1px solid #ccc;
@@ -291,8 +295,9 @@ main .container.show {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-self: center;
   align-items: center;
-  width: 250px;
+  width: 350px;
   grid-row: 3;
   grid-column: 2/4;
   padding-bottom: 40px;
@@ -312,18 +317,23 @@ main .container.show {
   color: white;
 }
 
-.inactiveMixin, .toggleWrapper input.mobileToggle + label:after, .toggleWrapper input.mobileToggle + label:before {
+.inactiveMixin,
+.toggleWrapper input.mobileToggle + label:after,
+.toggleWrapper input.mobileToggle + label:before {
   content: "";
   position: absolute;
   display: block;
 }
 
-.beforeAnimation, .toggleWrapper input.mobileToggle + label:before {
+.beforeAnimation,
+.toggleWrapper input.mobileToggle + label:before {
   transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
 }
 
-.afterAnimation, .toggleWrapper input.mobileToggle + label:after {
-  box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 0px 0 hsla(0, 0%, 0%, 0.04), 0 4px 9px hsla(0, 0%, 0%, 0.13), 0 3px 3px hsla(0, 0%, 0%, 0.05);
+.afterAnimation,
+.toggleWrapper input.mobileToggle + label:after {
+  box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 0px 0 hsla(0, 0%, 0%, 0.04),
+    0 4px 9px hsla(0, 0%, 0%, 0.13), 0 3px 3px hsla(0, 0%, 0%, 0.05);
   transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
 }
 

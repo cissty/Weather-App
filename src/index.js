@@ -53,6 +53,7 @@ searchInput.addEventListener("keydown", function (event) {
 });
 submitButton.addEventListener("click", () => {
   weather();
+  sevenDays()
   clearSearchInput();
   // displayMainContainer()
 });
@@ -106,3 +107,17 @@ const informationContainer = document.querySelector(".inf-container");
 sevenDaysButton.addEventListener("click", function () {
   informationContainer.style.display = "none";
 });
+
+async function sevenDays(){
+ 
+  const url = `http://api.weatherapi.com/v1/forecast.json?key=20307156973249f08ae23813231506&q=${searchInput.value}&days=7&aqi=no&alerts=no`;
+
+
+  const response = await fetch(url)
+  const data = await response.json()
+  const forecast = data.forecast.forecastday
+  console.log(forecast)
+  console.log(forecast[0].date) //today
+  console.log(forecast[1].date) // tomorrow
+}
+
