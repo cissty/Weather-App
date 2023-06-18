@@ -5,7 +5,25 @@ import "./styles/styles.scss";
 //the temp/feels like/ wind kph according to api and the day +
 //according the weather add icons-gif-text +
 //toggle chill music at the background ?
+document.addEventListener("DOMContentLoaded", function() {
+  const audio = document.getElementById("backgroundMusic");
+  const toggleButton = document.getElementById("toggleButton");
+  const volumeSlider = document.getElementById("volumeSlider");
+  let isPlaying = true;
 
+  toggleButton.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+      isPlaying = true;
+    } else {
+      audio.pause();
+      isPlaying = false;
+    }
+  });
+  volumeSlider.addEventListener("input", () => {
+    audio.volume = volumeSlider.value;
+  });
+});
 async function weather() {
   //DOM//
   const switchDegreeText = document.getElementById("f-c-text");
@@ -34,13 +52,11 @@ async function weather() {
     img.src = 'https:' + data.current.condition.icon;
     dailyImage.appendChild(img);
 
-    // get today's date//
-    const dailyDate = document.getElementById("todays-date");
-    const today = new Date();
-    const date = today.toLocaleDateString();
-    const time = today.toLocaleTimeString();
-    //
-    dailyDate.innerHTML = `Date: ${date} <br> Current Time: ${time}`;
+    updateTimer();
+    setInterval(updateTimer, 1000);
+   
+    countryName.textContent = `${city}/${country}`;
+
     toggleCheckbox.addEventListener("change", () => {
       if (toggleCheckbox.checked) {
         switchDegreeText.textContent = `${tempC}°C`;
@@ -61,7 +77,6 @@ async function weather() {
       }
     });
 
-    countryName.textContent = `${city}/${country}`;
 
     //7days//
     const forecastDay = data.forecast.forecastday;
@@ -232,3 +247,14 @@ main()
 function checkBoxOnChangeForLoop(array, array2, cf){
   array.textContent = `${array2}${cf}`;
 }
+
+function updateTimer() {
+  const currentTime = new Date();
+  // Update the date and time element
+  const dailyDate = document.getElementById("todays-date");
+  const date = currentTime.toLocaleDateString();
+  const time = currentTime.toLocaleTimeString();
+  dailyDate.innerHTML = `Date: ${date} <br> Current Time: ${time}`;
+}
+
+
