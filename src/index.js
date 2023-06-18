@@ -1,10 +1,5 @@
 import "./styles/styles.scss";
 
-//the see 7 days button +
-// add transition ?
-//the temp/feels like/ wind kph according to api and the day +
-//according the weather add icons-gif-text +
-//toggle chill music at the background ?
 document.addEventListener("DOMContentLoaded", function () {
   const audio = document.getElementById("backgroundMusic");
   const toggleButton = document.getElementById("toggleButton");
