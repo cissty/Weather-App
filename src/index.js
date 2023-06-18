@@ -1,4 +1,11 @@
 import "./styles/styles.scss";
+
+//the see 7 days button +
+    // add transition ?
+//the temp/feels like/ wind kph according to api and the day +
+//according the weather add icons-gif-text +
+//toggle chill music at the background ?
+
 async function weather() {
   //DOM//
   const switchDegreeText = document.getElementById("f-c-text");
@@ -6,11 +13,13 @@ async function weather() {
   const feelingTemp = document.getElementById("feeling-text");
   const countryName = document.getElementById("information");
   const lastUpdatedText = document.getElementById("last-updated");
+  const dailyImage = document.querySelector('.daily-img')
   //////
-  const url = `http://api.weatherapi.com/v1/current.json?key=20307156973249f08ae23813231506&q=${searchInput.value}`;
+  const url = `http://api.weatherapi.com/v1/forecast.json?key=20307156973249f08ae23813231506&q=${searchInput.value}&days=7&aqi=no&alerts=no`;
   try {
     const response = await fetch(url);
     const data = await response.json();
+  console.log(data.current)
 
     const country = data.location.country;
     const city = data.location.name;
@@ -18,6 +27,12 @@ async function weather() {
     lastUpdatedText.textContent = data.current["last_updated"];
     switchDegreeText.textContent = `${tempC}°C`;
     feelingTemp.textContent = `${data.current["feelslike_c"]}°C`;
+
+    // first page conditional image
+    dailyImage.innerHTML = '';
+    const img = document.createElement('img');
+    img.src = 'https:' + data.current.condition.icon;
+    dailyImage.appendChild(img);
 
     // get today's date//
     const dailyDate = document.getElementById("todays-date");
@@ -30,12 +45,68 @@ async function weather() {
       if (toggleCheckbox.checked) {
         switchDegreeText.textContent = `${tempC}°C`;
         feelingTemp.textContent = `${data.current["feelslike_c"]}°C`;
+        for (let i = 0; i < 7; i++){
+          checkBoxOnChangeForLoop(avgTempTextsInDom[i],avgTempC[i],'°C')
+          checkBoxOnChangeForLoop(minTempsInDom[i],minTempC[i],'°C')
+          checkBoxOnChangeForLoop(maxTempsInDom[i],maxTempC[i],'°C')
+        }
       } else {
         switchDegreeText.textContent = `${data.current["temp_f"]}°F`;
         feelingTemp.textContent = `${data.current["feelslike_f"]}°F`;
+        for (let i = 0; i < 7; i++){
+        checkBoxOnChangeForLoop(avgTempTextsInDom[i],avgTempF[i],'°F')
+        checkBoxOnChangeForLoop(minTempsInDom[i],minTempF[i],'°F')
+        checkBoxOnChangeForLoop(maxTempsInDom[i],maxTempF[i],'°F')
+        }
       }
     });
+
     countryName.textContent = `${city}/${country}`;
+
+    //7days//
+    const forecastDay = data.forecast.forecastday;
+    //get avgTemps and store them in an array
+    const avgTempC = [];
+    const avgTempF = [];
+    const weatherConditions = [];
+    const weatherConditionsIcons = [];
+    const minTempC = [];
+    const minTempF = [];
+    const maxTempC = [];
+    const maxTempF = [];
+
+    forecastDay.forEach(index =>{
+      avgTempC.push(index.day.avgtemp_c)
+      avgTempF.push(index.day.avgtemp_f)
+      weatherConditions.push(index.day.condition.text)
+      weatherConditionsIcons.push(index.day.condition.icon)
+      minTempC.push(index.day.mintemp_c)
+      minTempF.push(index.day.mintemp_f)
+      maxTempC.push(index.day.maxtemp_c)
+      maxTempF.push(index.day.maxtemp_f)
+    });
+
+
+    const avgTempTextsInDom = [...document.querySelectorAll('.f-c-texts')];
+    const conditionInDom = [...document.querySelectorAll('h5')];
+    const minTempsInDom = [...document.querySelectorAll('.min-temp')];
+    const maxTempsInDom = [...document.querySelectorAll('.max-temp')];
+    const imagesInDom = [...document.querySelectorAll('.img')]
+
+    imagesInDom.forEach(el => {
+      el.innerHTML = '';
+    });
+
+    for (let i = 0; i < 7; i++){
+      checkBoxOnChangeForLoop(avgTempTextsInDom[i],avgTempC[i],'°C')
+      checkBoxOnChangeForLoop(minTempsInDom[i],minTempC[i],'°C')
+      conditionInDom[i].textContent = weatherConditions[i];
+      checkBoxOnChangeForLoop(maxTempsInDom[i],maxTempC[i],'°C')
+
+      const img = document.createElement('img');
+      img.src = 'https:' + weatherConditionsIcons[i];
+      imagesInDom[i].appendChild(img);
+    }
   } catch (error) {
     console.log(error);
   }
@@ -43,19 +114,17 @@ async function weather() {
 //if pressed enter or to the search button
 const submitButton = document.getElementById("submitButton");
 const searchInput = document.getElementById("search");
-//dom//
 
 searchInput.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     submitButton.click();
-    // displayMainContainer()
+    displayMainContainer()
   }
 });
 submitButton.addEventListener("click", () => {
   weather();
-  sevenDays();
   clearSearchInput();
-  // displayMainContainer()
+  displayMainContainer()
 });
 //for search
 async function showSearchResults() {
@@ -98,23 +167,68 @@ function clearSearchInput() {
 
 //main container
 function displayMainContainer() {
-  const mainContainer = document.querySelector(".container");
+  const mainContainer = document.querySelector('main')
   mainContainer.classList.add("show");
 }
 //
 const sevenDaysButton = document.querySelector(".sevenDaysButton");
 const informationContainer = document.querySelector(".inf-container");
+const daysSection = document.querySelector('section');
+
 sevenDaysButton.addEventListener("click", function () {
-  informationContainer.style.display = "none";
+  
+
+  if(sevenDaysButton.textContent === 'See 7 days'){
+    sevenDaysButton.textContent = 'See current Day';
+    informationContainer.style.display = "none";
+    daysSection.style.display = 'grid';
+  }else if(sevenDaysButton.textContent === 'See current Day'){
+    sevenDaysButton.textContent = 'See 7 days';
+    daysSection.style.display = 'none';
+    informationContainer.style.display = 'flex'
+  }
 });
 
-async function sevenDays() {
-  const url = `http://api.weatherapi.com/v1/forecast.json?key=20307156973249f08ae23813231506&q=${searchInput.value}&days=7&aqi=no&alerts=no`;
+//get days//
+function getDays(date) {
+  const daysOfWeek = [];
 
-  const response = await fetch(url);
-  const data = await response.json();
-  const forecast = data.forecast.forecastday;
-  console.log(forecast);
-  console.log(forecast[0].date); //today
-  console.log(forecast[1].date); // tomorrow
+  for (let i = 0; i < 7; i++) {
+    daysOfWeek.push(
+      date.toLocaleDateString("en-US", {
+        weekday: "long",
+        month: "short",
+        day: "numeric",
+      })
+    );
+    date.setDate(date.getDate() + 1);
+  }
+  return daysOfWeek;
+}
+
+//push the days inside dom//
+function main() {
+  const domDays = [...document.querySelectorAll(".days")];
+  const date = new Date();
+  const daysOfWeek = getDays(date);
+
+  for (let i = 1; i < daysOfWeek.length; i++) {
+    domDays[i].textContent = daysOfWeek[i];
+  }
+
+  //today
+  setAtt(domDays[0],daysOfWeek[0],"Today");
+  //tomorrow
+  setAtt(domDays[1],daysOfWeek[1] ,"Tomorrow");
+
+  function setAtt(day, el, index) {
+    day.setAttribute("style", "text-align: center;");
+    day.innerHTML = `<span>${el}</span><br><span class="current-day">(${index})</span>`;
+  }
+}
+main()
+
+
+function checkBoxOnChangeForLoop(array, array2, cf){
+  array.textContent = `${array2}${cf}`;
 }

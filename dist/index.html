@@ -30,7 +30,8 @@
             <label for="toggle1"></label>
           </div>
         </div>
-        <div class="inf-container" style="display: none;">
+        <div class="inf-container">
+          <div class="daily-img"></div>
           <div class="update">
             <div class="last-update-date">
               <span>Today</span>
@@ -66,7 +67,7 @@
                   fill="white"
                 ></text>
               </svg>
-              <p class="inf-inf">Temperature</p>
+              <p class="inf-inf-f">Current Temp</p>
             </div>
             <div class="circle">
               <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
@@ -96,7 +97,9 @@
 
         <section class="seven-days">
           <div class="each-circle-column">
-            <p>Day 1<br><span class="forecast-guess"></span></p>
+            <p class="days">Day 1<br><span class="forecast-guess"></span></p>
+            <h5></h5>
+            <div class="img"></div>
             <div class="circle">
               <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
                 <circle
@@ -108,15 +111,15 @@
                   stroke-width="2"
                 />
                 <text
-                  id="f-c-text"
+                  class="f-c-texts"
                   x="35"
                   y="35"
                   text-anchor="middle"
                   dominant-baseline="central"
                   fill="white"
-                >50C</text>
+                ></text>
               </svg>
-              <p class="inf-inf">Temperature</p>
+              <p class="inf-inf">Average Temperature</p>
             </div>
           <div class="circle">
             <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
@@ -129,15 +132,15 @@
                 stroke-width="2"
               />
               <text
-                id="f-c-text"
+                class="min-temp"
                 x="35"
                 y="35"
                 text-anchor="middle"
                 dominant-baseline="central"
                 fill="white"
-              >14.6C</text>
+              ></text>
             </svg>
-            <p class="inf-inf">Feels like</p>
+            <p class="inf-inf">Min Temp</p>
           </div>
           <div class="circle">
             <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
@@ -150,20 +153,22 @@
                 stroke-width="2"
               />
               <text
-                id="f-c-text"
+              class="max-temp"
                 x="35"
                 y="35"
                 text-anchor="middle"
                 dominant-baseline="central"
                 fill="white"
-              >9.5</text>
+              ></text>
             </svg>
-            <p class="inf-inf">Wind kph</p>
+            <p class="inf-inf">Max Temperature</p>
           </div>
         </div>
           
         <div class="each-circle-column">
-          <p>Day 2<br><span class="forecast-guess"></span></p>
+          <p class="days">Day 2<br><span class="forecast-guess"></span></p>
+          <h5></h5>
+          <div class="img"></div>
           <div class="circle">
             <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
               <circle
@@ -175,15 +180,15 @@
                 stroke-width="2"
               />
               <text
-                id="f-c-text"
+                class="f-c-texts"
                 x="35"
                 y="35"
                 text-anchor="middle"
                 dominant-baseline="central"
                 fill="white"
-              >50C</text>
+              ></text>
             </svg>
-            <p class="inf-inf">Temperature</p>
+            <p class="inf-inf">Average Temperature</p>
           </div>
         <div class="circle">
           <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
@@ -196,15 +201,15 @@
               stroke-width="2"
             />
             <text
-              id="f-c-text"
+            class="min-temp"
               x="35"
               y="35"
               text-anchor="middle"
               dominant-baseline="central"
               fill="white"
-            >14.6C</text>
+            ></text>
           </svg>
-          <p class="inf-inf">Feels like</p>
+          <p class="inf-inf">Min Temp</p>
         </div>
         <div class="circle">
           <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
@@ -217,20 +222,23 @@
               stroke-width="2"
             />
             <text
-              id="f-c-text"
+            class="max-temp"
               x="35"
               y="35"
               text-anchor="middle"
               dominant-baseline="central"
               fill="white"
-            >9.5</text>
+            ></text>
           </svg>
-          <p class="inf-inf">Wind kph</p>
+          <p class="inf-inf">Max Temperature</p>
         </div>
       </div>
 
       <div class="each-circle-column">
-        <p>Day 3<br><span class="forecast-guess"></span></p>
+        <p class="days">Day 3<br><span class="forecast-guess"></span></p>
+        <h5></h5>
+        <div class="img"></div>
+
         <div class="circle">
           <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
             <circle
@@ -242,15 +250,15 @@
               stroke-width="2"
             />
             <text
-              id="f-c-text"
+              class="f-c-texts"
               x="35"
               y="35"
               text-anchor="middle"
               dominant-baseline="central"
               fill="white"
-            >50C</text>
+            ></text>
           </svg>
-          <p class="inf-inf">Temperature</p>
+          <p class="inf-inf">Average Temperature</p>
         </div>
       <div class="circle">
         <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
@@ -263,15 +271,15 @@
             stroke-width="2"
           />
           <text
-            id="f-c-text"
+          class="min-temp"
             x="35"
             y="35"
             text-anchor="middle"
             dominant-baseline="central"
             fill="white"
-          >14.6C</text>
+          ></text>
         </svg>
-        <p class="inf-inf">Feels like</p>
+        <p class="inf-inf">Min Temp</p>
       </div>
       <div class="circle">
         <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
@@ -284,19 +292,23 @@
             stroke-width="2"
           />
           <text
-            id="f-c-text"
+          class="max-temp"
             x="35"
             y="35"
             text-anchor="middle"
             dominant-baseline="central"
             fill="white"
-          >9.5</text>
+          ></text>
         </svg>
-        <p class="inf-inf">Wind kph</p>
+        <p class="inf-inf">Max Temperature
+        </p>
       </div>
     </div>
     <div class="each-circle-column">
-      <p>Day 4<br><span class="forecast-guess"></span></p>
+      <p class="days">Day 4<br><span class="forecast-guess"></span></p>
+      <h5></h5>
+      <div class="img"></div>
+
       <div class="circle">
         <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
           <circle
@@ -308,15 +320,15 @@
             stroke-width="2"
           />
           <text
-            id="f-c-text"
+            class="f-c-texts"
             x="35"
             y="35"
             text-anchor="middle"
             dominant-baseline="central"
             fill="white"
-          >50C</text>
+          ></text>
         </svg>
-        <p class="inf-inf">Temperature</p>
+        <p class="inf-inf">Average Temperature</p>
       </div>
     <div class="circle">
       <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
@@ -329,15 +341,15 @@
           stroke-width="2"
         />
         <text
-          id="f-c-text"
+        class="min-temp"
           x="35"
           y="35"
           text-anchor="middle"
           dominant-baseline="central"
           fill="white"
-        >14.6C</text>
+        ></text>
       </svg>
-      <p class="inf-inf">Feels like</p>
+      <p class="inf-inf">Min Temp</p>
     </div>
     <div class="circle">
       <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
@@ -350,20 +362,23 @@
           stroke-width="2"
         />
         <text
-          id="f-c-text"
+        class="max-temp"
           x="35"
           y="35"
           text-anchor="middle"
           dominant-baseline="central"
           fill="white"
-        >9.5</text>
+        ></text>
       </svg>
-      <p class="inf-inf">Wind kph</p>
+      <p class="inf-inf">Max Temperature</p>
     </div>
   </div>
 
   <div class="each-circle-column">
-    <p>Day 5<br><span class="forecast-guess"></span></p>
+    <p class="days">Day 5<br><span class="forecast-guess"></span></p>
+    <h5></h5>
+    <div class="img"></div>
+
     <div class="circle">
       <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
         <circle
@@ -375,15 +390,15 @@
           stroke-width="2"
         />
         <text
-          id="f-c-text"
+          class="f-c-texts"
           x="35"
           y="35"
           text-anchor="middle"
           dominant-baseline="central"
           fill="white"
-        >50C</text>
+        ></text>
       </svg>
-      <p class="inf-inf">Temperature</p>
+      <p class="inf-inf">Average Temperature</p>
     </div>
   <div class="circle">
     <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
@@ -396,15 +411,15 @@
         stroke-width="2"
       />
       <text
-        id="f-c-text"
+      class="min-temp"
         x="35"
         y="35"
         text-anchor="middle"
         dominant-baseline="central"
         fill="white"
-      >14.6C</text>
+      ></text>
     </svg>
-    <p class="inf-inf">Feels like</p>
+    <p class="inf-inf">Min Temp</p>
   </div>
   <div class="circle">
     <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
@@ -417,20 +432,23 @@
         stroke-width="2"
       />
       <text
-        id="f-c-text"
+      class="max-temp"
         x="35"
         y="35"
         text-anchor="middle"
         dominant-baseline="central"
         fill="white"
-      >9.5</text>
+      ></text>
     </svg>
-    <p class="inf-inf">Wind kph</p>
+    <p class="inf-inf">Max Temperature</p>
   </div>
 </div>
 
 <div class="each-circle-column">
-  <p>Day 6<br><span class="forecast-guess"></span></p>
+  <p class="days">Day 6<br><span class="forecast-guess"></span></p>
+  <h5></h5>
+  <div class="img"></div>
+
   <div class="circle">
     <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
       <circle
@@ -442,15 +460,15 @@
         stroke-width="2"
       />
       <text
-        id="f-c-text"
+        class="f-c-texts"
         x="35"
         y="35"
         text-anchor="middle"
         dominant-baseline="central"
         fill="white"
-      >50C</text>
+      ></text>
     </svg>
-    <p class="inf-inf">Temperature</p>
+    <p class="inf-inf">Average Temperature</p>
   </div>
 <div class="circle">
   <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
@@ -463,15 +481,15 @@
       stroke-width="2"
     />
     <text
-      id="f-c-text"
+    class="min-temp"
       x="35"
       y="35"
       text-anchor="middle"
       dominant-baseline="central"
       fill="white"
-    >14.6C</text>
+    ></text>
   </svg>
-  <p class="inf-inf">Feels like</p>
+  <p class="inf-inf">Min Temp</p>
 </div>
 <div class="circle">
   <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
@@ -484,20 +502,22 @@
       stroke-width="2"
     />
     <text
-      id="f-c-text"
+    class="max-temp"
       x="35"
       y="35"
       text-anchor="middle"
       dominant-baseline="central"
       fill="white"
-    >9.5</text>
+    ></text>
   </svg>
-  <p class="inf-inf">Wind kph</p>
+  <p class="inf-inf">Max Temperature</p>
 </div>
 </div>
 
 <div class="last-circle-column">
-  <p>Day 7<br><span class="forecast-guess"></span></p>
+  <p class="days">Day 7<br><span class="forecast-guess"></span></p>
+  <h5></h5>
+  <div class="img"></div>
   <div class="circle">
     <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
       <circle
@@ -509,15 +529,15 @@
         stroke-width="2"
       />
       <text
-        id="f-c-text"
+        class="f-c-texts"
         x="35"
         y="35"
         text-anchor="middle"
         dominant-baseline="central"
         fill="white"
-      >50C</text>
+      ></text>
     </svg>
-    <p class="inf-inf">Temperature</p>
+    <p class="inf-inf">Avg Temp</p>
   </div>
 <div class="circle">
   <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
@@ -530,15 +550,15 @@
       stroke-width="2"
     />
     <text
-      id="f-c-text"
+    class="min-temp"
       x="35"
       y="35"
       text-anchor="middle"
       dominant-baseline="central"
       fill="white"
-    >14.6C</text>
+    ></text>
   </svg>
-  <p class="inf-inf">Feels like</p>
+  <p class="inf-inf">Min Temp</p>
 </div>
 <div class="circle">
   <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70">
@@ -551,15 +571,15 @@
       stroke-width="2"
     />
     <text
-      id="f-c-text"
+      class="max-temp"
       x="35"
       y="35"
       text-anchor="middle"
       dominant-baseline="central"
       fill="white"
-    >9.5</text>
+    ></text>
   </svg>
-  <p class="inf-inf">Wind kph</p>
+  <p class="inf-inf">Max Temperature</p>
 </div>
 </div>
 
