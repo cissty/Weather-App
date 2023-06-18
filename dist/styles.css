@@ -25,11 +25,7 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  background-image: linear-gradient(
-      rgba(4, 9, 30, 0.562),
-      rgba(4, 9, 30, 0.418)
-    ),
-    url(060a614aa1bdff4e149d.jpg);
+  background-image: linear-gradient(rgba(4, 9, 30, 0.562), rgba(4, 9, 30, 0.418)), url(060a614aa1bdff4e149d.jpg);
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
@@ -67,10 +63,26 @@ h6 {
 
 header {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding-top: 30px;
   grid-column-start: span 3;
+}
+header .search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+header #toggleButton {
+  margin-right: 2rem;
+  border-radius: 40%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+header #toggleButton:active {
+  scale: 1.1;
 }
 
 #submitButton {
@@ -122,8 +134,12 @@ header {
   gap: 20px;
 }
 .update .last-update-date {
-  border: 1px solid gray;
   padding: 20px;
+  width: 200px;
+}
+.update .last-update-date.left {
+  border-right: 1px solid gray;
+  padding-right: 45px;
 }
 
 .search-bar {
@@ -132,11 +148,10 @@ header {
 
 .auto-complete {
   width: 400px;
-  padding: 10px;
   cursor: pointer;
 }
 
-input[type="text"] {
+input[type=text] {
   width: 350px;
   padding: 8px;
   border: 1px solid #ccc;
@@ -153,6 +168,12 @@ main {
   justify-content: center;
   align-items: center;
   position: relative;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+main.show {
+  display: flex;
+  opacity: 1;
 }
 main .container {
   display: grid;
@@ -162,13 +183,9 @@ main .container {
   width: 800px;
   height: 600px;
   border-radius: 15px;
-  border: 4px solid rgb(253, 146, 146);
+  border: 4px solid #FFD700;
   padding: 15px;
-  transition: opacity 0.5s ease-in-out;
-  opacity: 1;
-}
-main .container.show {
-  opacity: 1;
+  box-shadow: 0 6px 6px hsla(0, 0%, 0%, 0.767);
 }
 
 .sevenDaysButton {
@@ -215,16 +232,17 @@ main .container.show {
   grid-column: span 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 15px;
+  align-items: center;
   gap: 3rem;
   padding-left: 3px;
 }
+.inf-container .daily-img {
+  width: 70px;
+  height: 70px;
+}
 .inf-container .f-c-circles {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
+  gap: 20px;
 }
 .inf-container .circle {
   display: flex;
@@ -243,7 +261,7 @@ main .container.show {
 .seven-days {
   grid-row-start: 2;
   grid-column: span 2;
-  display: grid;
+  display: none;
   grid-template-columns: repeat(3, 1fr);
   overflow-x: auto;
   white-space: nowrap;
@@ -292,16 +310,22 @@ main .container.show {
   padding-bottom: 3px;
 }
 
+#information {
+  color: rgb(248, 94, 94);
+}
+
 .last-circle-column {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  gap: 10px;
   align-self: center;
   align-items: center;
-  width: 350px;
-  grid-row: 3;
-  grid-column: 2/4;
+  padding-top: 15px;
+  grid-column-start: 1;
+  grid-column-end: 4;
   padding-bottom: 40px;
+  border-top: 1px solid gray;
 }
 .last-circle-column p:first-child {
   margin-right: 18px;
@@ -314,8 +338,9 @@ main .container.show {
   padding-bottom: 3px;
 }
 
-#f-c-text {
-  color: white;
+.current-day {
+  color: #ccc;
+  font-size: 15px;
 }
 
 .forecast-guess {
@@ -324,23 +349,18 @@ main .container.show {
   text-align: center;
 }
 
-.inactiveMixin,
-.toggleWrapper input.mobileToggle + label:after,
-.toggleWrapper input.mobileToggle + label:before {
+.inactiveMixin, .toggleWrapper input.mobileToggle + label:after, .toggleWrapper input.mobileToggle + label:before {
   content: "";
   position: absolute;
   display: block;
 }
 
-.beforeAnimation,
-.toggleWrapper input.mobileToggle + label:before {
+.beforeAnimation, .toggleWrapper input.mobileToggle + label:before {
   transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
 }
 
-.afterAnimation,
-.toggleWrapper input.mobileToggle + label:after {
-  box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 0px 0 hsla(0, 0%, 0%, 0.04),
-    0 4px 9px hsla(0, 0%, 0%, 0.13), 0 3px 3px hsla(0, 0%, 0%, 0.05);
+.afterAnimation, .toggleWrapper input.mobileToggle + label:after {
+  box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 0px 0 hsla(0, 0%, 0%, 0.04), 0 4px 9px hsla(0, 0%, 0%, 0.13), 0 3px 3px hsla(0, 0%, 0%, 0.05);
   transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
 }
 
