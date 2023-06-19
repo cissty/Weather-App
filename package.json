@@ -1,11 +1,16 @@
 {
   "name": "weather-app",
   "version": "1.0.0",
+  "repository": {
+    "url": "git+https://github.com/cissty/Weather-App.git"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
     "format": "prettier --write .",
-    "build": "webpack --mode production",
+    "build": "webpack --mode=development",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "start": "webpack serve --config webpack.config.js --open"
   },
   "keywords": [],
@@ -17,6 +22,7 @@
     "babel-loader": "^9.1.2",
     "css-loader": "^6.8.1",
     "css-minimizer-webpack-plugin": "^5.0.1",
+    "gh-pages": "^5.0.0",
     "mini-css-extract-plugin": "^2.7.6",
     "prettier": "^2.8.8",
     "sass": "^1.63.4",

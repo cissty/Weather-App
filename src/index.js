@@ -28,7 +28,7 @@ async function weather() {
   const lastUpdatedText = document.getElementById("last-updated");
   const dailyImage = document.querySelector(".daily-img");
   //////
-  const url = `http://api.weatherapi.com/v1/forecast.json?key=20307156973249f08ae23813231506&q=${searchInput.value}&days=7&aqi=no&alerts=no`;
+  const url = `https://api.weatherapi.com/v1/forecast.json?key=20307156973249f08ae23813231506&q=${searchInput.value}&days=7&aqi=no&alerts=no`;
   try {
     const response = await fetch(url);
     const data = await response.json();
@@ -135,7 +135,7 @@ submitButton.addEventListener("click", () => {
 });
 //for search
 async function showSearchResults() {
-  const url = `http://api.weatherapi.com/v1/search.json?key=20307156973249f08ae23813231506&q=${searchInput.value}`;
+  const url = `https://api.weatherapi.com/v1/search.json?key=20307156973249f08ae23813231506&q=${searchInput.value}`;
 
   try {
     const response = await fetch(url);
